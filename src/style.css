@@ -1,0 +1,164 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  font-family:'Arial Narrow Bold', sans-serif;
+}
+body{
+  background-color: #eaeded;
+  padding-top: 60px;
+  padding: 50px;
+
+}
+#title-home-page{
+  text-align: center;
+}
+#forms-habits{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: 70px;
+  
+}
+
+#forms-habits form{
+  max-width: 30%;
+  min-width: 400px;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #cbcbcb83;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+#forms-habits form h3{
+  font-size: 30px;
+
+}
+
+#forms-habits form input{
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  border:  1px solid rgba(190, 190, 190, 0.796);
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+
+}
+#forms-habits form button{
+  border:  none;
+  background-color: rgb(0, 0, 0);
+  border-radius: 6px;
+  color: white;
+  padding: 10px 15px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#forms-habits form button:hover{
+  background-color: rgba(5, 5, 5, 0.845);
+}
+
+
+
+
+/* Container principale */
+.tracking-container {
+  width: 70%;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Titre principal */
+
+/* Conteneur du tableau */
+.table-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #cbcbcb83;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre du tableau */
+.table-container h3 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+/* Style du tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* text-align: left; */
+}
+
+/* En-têtes du tableau */
+table thead th {
+  padding: 10px;
+  padding-bottom: 20px;
+  font-weight: 500;
+  color: #555;
+  background-color: #f8f9f9;
+  text-align: center;
+}
+
+
+/* Corps du tableau */
+table tbody td {
+  padding: 20px 0px;
+  border-top: 1px solid rgba(193, 193, 193, 0.663);
+  text-align: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+/* Bouton de suppression */
+.delete-btn {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.delete-btn:hover {
+  color: red;
+}
+
+/* Style pour les cases à cocher */
+input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Style pour l'affichage du progrès */
+table tbody td span {
+  font-size: 16px;
+  color: #555;
+}
+
+
+.chek-box{
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: #e5e7e9;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+}
+.chek-box i{
+  font-size: 22px;
+  color: blue;
+}
