@@ -10,7 +10,7 @@ function Home() {
 
   function ajouterHbitude(){
     setHabitudes([
-      ...habitudes,{id:Date.now(),nom:habitude,jours:Array(7).fill(false)}
+      ...habitudes,{id:Date.now(),nom:habitude,jours:Array(11).fill(false)}
     ])
     setHabitude('')
   }
@@ -25,15 +25,7 @@ function Home() {
         
       })
 
-      // habitudes.map((ele) => {
-      //   setHabitudes(
-      //     habitudes.map((habitude) =>
-      //       habitude.id === habitudeId
-      //         ? { ...habitude, jours: habitude.jours.map((el, i) => (i === ind ? !el : el)) }
-      //         : habitude
-      //     )
-      //   );
-      // });
+
      
       
   }
@@ -41,7 +33,7 @@ function Home() {
   function removeHbits(HbitsId){
     console.log(HbitsId)
     const newHbitudes=habitudes.filter((ele)=>(ele.id!==HbitsId))
-    console.log(newHbitudes)
+    // console.log(newHbitudes)
     setHabitudes(newHbitudes)
   }
   // useEffect(()=>{
@@ -71,29 +63,29 @@ function Home() {
             <table>
                 <thead>
                     <tr>
-                      <th>Habitude</th>
-                      <th>Lun</th>
-                      <th>Mar</th>
-                      <th>Mer</th>
-                      <th>Jeu</th>
-                      <th>Ven</th>
-                      <th>Sam</th>
-                      <th>Dim</th>
-                      <th>Actions</th>
+                        <th>Jour</th>
+                        
+                        
+                        {habitudes.map((habitude,index)=>
+                        <th key={index}>{habitude.nom}</th>
+                        )}
+                        
                     </tr>
                 </thead>
                 <tbody>
-                  
-                    {habitudes.map((habitude,i)=>(
-                      <tr key={i}>
-                      <td>{habitude.nom}</td>
-                      {habitude.jours.map((jour,index)=>(
-                        <td onClick={()=>{Checkjour(habitude.id,index)}} key={index}><div className="chek-box"   >{ jour && <i className="fa-solid fa-check"></i>}</div></td>
 
-                      ))}
-                      <td ><button onClick={()=>{removeHbits(habitude.id)}}  className="delete-btn" ><i className="fa-solid fa-trash-can"></i></button></td>
-                    </tr>
-                    ))}
+                {[...Array(11)].map((_, indiceJour)  => // le nombre de jout il doist stcké dans une varible siasir par le user
+                        
+                        <tr key={indiceJour}>
+                          <td className="nbr-jr">{indiceJour+1}</td>
+                          {habitudes.map((habitude,index)=>
+                          <td key={index}  onClick={()=>Checkjour(habitude.id,indiceJour)}   ><div className="chek-box ">{habitude.jours[indiceJour] && <i className="fa-solid fa-check"></i>}</div></td>
+                        )}
+                        </tr>
+                        
+                      )}
+                    
+                   
                 </tbody>
             </table>
           </div>
@@ -104,3 +96,6 @@ function Home() {
 }
 
 export default Home
+
+
+
