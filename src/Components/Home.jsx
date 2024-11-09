@@ -63,7 +63,7 @@ function Home() {
             <table>
                 <thead>
                     <tr>
-                        <th>Jour</th>
+                        <th id="th-jours">Jour</th>
                         
                         
                         {habitudes.map((habitude,index)=>

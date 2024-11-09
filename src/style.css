@@ -179,3 +179,7 @@ th {
   font-size: 22px;
   color: #007bff;
 }
+
+#th-jours{
+  text-align: left;
+}
