@@ -153,9 +153,7 @@ table {
 }
 th, td {
   padding: 12px;
-  width:25px;
-  max-width: 25px;
-  min-width: 25px;
+  min-width: 70px;
   text-align: center;
   border-bottom: 1px solid #e0e0e0;
 }
@@ -182,4 +180,11 @@ th {
 
 #th-jours{
   text-align: left;
+}
+.th-progress{
+  text-align: right;
+}
+.th-progress-count{
+  text-align: right;
+  padding-right: 30px !important;
 }

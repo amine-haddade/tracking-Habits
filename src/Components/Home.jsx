@@ -1,12 +1,14 @@
 // import TableHbits from "./TableHbits"
 
-import {   useState } from "react"
+import {  useState,useEffect } from "react"
 
 // import FormsHabits from "./FormsHabits"
 function Home() {
 
   const [habitudes,setHabitudes]=useState([])
   const [habitude,setHabitude]=useState('')
+  const [stockIdHbits,setStockIdHbits]=useState({id:null,indiceJour:null})
+  const [nbrJpours,setNbrJours]=useState(Array(11).fill({prog:0}))
 
   function ajouterHbitude(){
     setHabitudes([
@@ -15,31 +17,44 @@ function Home() {
     setHabitude('')
   }
   function Checkjour(habitudeId,ind){
-   
-      habitudes.map(()=>{
-        setHabitudes(
-          habitudes.map((habitude)=>// donner pour qoui lorsque effacer ce praquete{} le code fonction 
-            habitude.id===habitudeId
-           ? {...habitude,jours:habitude.jours.map((el,i)=>(i===ind ? !el : el))} 
-           :habitude))
+    setStockIdHbits({id:habitudeId,indiceJour:ind})
+    habitudes.map(()=>{
+      setHabitudes(
+        habitudes.map((habitude)=>// donner pour qoui lorsque effacer ce praquete{} le code fonction 
+        habitude.id===habitudeId
+        ? {...habitude,jours:habitude.jours.map((el,i)=>(i===ind ? !el : el))} 
+        :habitude))
         
       })
+      
+      // const habitudeFind=habitudes.find(h => h.id === habitudeId);
 
-
+      
      
       
   }
 
-  function removeHbits(HbitsId){
-    console.log(HbitsId)
-    const newHbitudes=habitudes.filter((ele)=>(ele.id!==HbitsId))
-    // console.log(newHbitudes)
-    setHabitudes(newHbitudes)
-  }
-  // useEffect(()=>{
-  //   removeHbits()
-  // },[])
-  
+  useEffect(()=>{
+    console.log(habitudes) // habitude changer
+    console.log(stockIdHbits)
+    const JoursHabitudes=habitudes.find(habitude => habitude.id === stockIdHbits.id)?.jours[stockIdHbits.indiceJour]
+    if (JoursHabitudes === true) {
+          setNbrJours(
+            nbrJpours.map((el,ind)=>
+              ind===stockIdHbits.indiceJour ?
+              {...el,prog:el.prog+1}
+              :el)
+          )
+    }
+    else {
+          setNbrJours(
+            nbrJpours.map((el,ind)=>
+              ind===stockIdHbits.indiceJour ?
+              {...el,prog:el.prog-1}
+              :el)
+          )
+    }
+  },[habitudes,stockIdHbits])
 
   
   
@@ -47,13 +62,11 @@ function Home() {
     <>
       <h1 id="title-home-page">Suivi des Habitudes</h1>
       <div id="forms-habits">
-        {/* <FormsHabits/>
-        <TableHbits/>
-       */}
+        
        <form onSubmit={(e)=>{e.preventDefault()}}>
           <h3>ajouter habitude</h3>
           <input value={habitude} onChange={(e)=>{setHabitude(e.target.value)}} placeholder="nouvelle habitude" type="text"/>
-          <button onClick={()=>{ajouterHbitude()}}>ajouter</button>
+          <button onClick={()=>{ajouterHbitude()}}>ajouter</button> 
         </form>
 
 
@@ -68,19 +81,22 @@ function Home() {
                         
                         {habitudes.map((habitude,index)=>
                         <th key={index}>{habitude.nom}</th>
-                        )}
+                      )}
+                      <th className="th-progress">progress</th>
+                      
                         
                     </tr>
                 </thead>
                 <tbody>
 
-                {[...Array(11)].map((_, indiceJour)  => // le nombre de jout il doist stcké dans une varible siasir par le user
+                {[...nbrJpours].map((_, indiceJour)  => // le nombre de jout il doist stcké dans une varible siasir par le user
                         
                         <tr key={indiceJour}>
                           <td className="nbr-jr">{indiceJour+1}</td>
                           {habitudes.map((habitude,index)=>
                           <td key={index}  onClick={()=>Checkjour(habitude.id,indiceJour)}   ><div className="chek-box ">{habitude.jours[indiceJour] && <i className="fa-solid fa-check"></i>}</div></td>
                         )}
+                        <td className="th-progress-count"   >{nbrJpours[indiceJour].prog}/{habitudes.length}</td>
                         </tr>
                         
                       )}
