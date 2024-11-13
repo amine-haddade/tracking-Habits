@@ -15,16 +15,24 @@ body{
 #forms-habits{
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   gap: 20px;
+  flex-wrap: wrap;
   padding-top: 70px;
   
 }
-
+#forms-habits #row-1{
+  /* flex-grow: 1; */
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 20px;
+}
 #forms-habits form{
-  max-width: 30%;
   min-width: 400px;
+  max-width: 400px ;
   padding: 20px;
   border-radius: 6px;
   border: 1px solid #cbcbcb83;
@@ -70,9 +78,12 @@ body{
 
 /* Container principale */
 .tracking-container {
-  width: 70%;
+  /* width: 70%; */
+  flex-grow: 5;
+  min-width: 600px;
   font-family: Arial, sans-serif;
   color: #333;
+  
 }
 
 /* Titre principal */
@@ -84,27 +95,16 @@ body{
   border-radius: 8px;
   border: 1px solid #cbcbcb83;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Permet le scroll horizontal si nécessaire */
 }
 
 /* Titre du tableau */
 .table-container h3 {
   font-size: 25px;
   margin-bottom: 20px;
+
 }
 
-/* Style du tableau */
-
-/* En-têtes du tableau */
-
-
-
-/* Corps du tableau */
-
-
-
-
-
-/* Bouton de suppression */
 .delete-btn {
   background: none;
   border: none;
@@ -150,10 +150,16 @@ input[type="checkbox"] {
 table {
   width: 100%;
   border-collapse: collapse;
+  overflow: hidden;
+}
+tr{
+  overflow: scroll;
+
 }
 th, td {
   padding: 12px;
-  min-width: 70px;
+  /* min-width: 70px; */
+
   text-align: center;
   border-bottom: 1px solid #e0e0e0;
 }
@@ -161,6 +167,8 @@ th {
   background-color: #f8f9fa;
   font-weight: bold;
   color: #333;
+  /* overflow: scroll; */
+
   text-align: center;
 }
 .checkbox {
@@ -180,6 +188,7 @@ th {
 
 #th-jours{
   text-align: left;
+  color: #5dade2;
 }
 .th-progress{
   text-align: right;
@@ -188,3 +197,29 @@ th {
   text-align: right;
   padding-right: 30px !important;
 }
+
+
+
+
+@media screen and (max-width: 1200px) {
+    #forms-habits {
+      justify-content: center; /* Centre le conteneur principal */
+      /* align-items: center; */
+  }
+
+  #forms-habits form {
+      width: 100%;
+      min-width: 350px; /* Met le formulaire en pleine largeur */
+      max-width: 75%; /* Ajuste la largeur maximale pour laisser un espace sur les côtés */
+      margin: auto; /* Centre le formulaire à l'intérieur du conteneur */
+  }
+  #forms-habits #row-1{
+    flex-grow: 1;
+    
+  }
+}
+  
+  
+  
+
+
