@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import {Pencil,Trash}  from 'lucide-react';
+import { createPortal } from "react-dom";
+import EditModel from "./model/EditModel";
 function Home() {
   const [habitudes, setHabitudes] = useState([]);
   const [habitude, setHabitude] = useState("");
@@ -7,7 +10,7 @@ function Home() {
     indiceJour: null,
   });
   const [nbrJpours, setNbrJours] = useState(Array(8).fill({ prog: 0 }));
-
+  const [showModel,setShowModel]=useState(false);
   function ajouterHbitude() {
     setHabitudes([
       ...habitudes,
@@ -58,59 +61,60 @@ function Home() {
       );
       // setStockIdHbits({id:null,indiceJour:null})
     }
-  }, [habitudes, stockIdHbits]);
+  }, [habitudes,stockIdHbits]);
 
+  function FormEdit(IdHabitude){
+    console.log(IdHabitude)
+    setShowModel(true)
+    
+  }
+  useEffect(()=>{
+    if (showModel) {
+      // Ajouter un overlay sombre au body
+      const body = document.body;
+      document.getElementById('everly').classList.add("dark-overlay");
+
+      // Empêcher le scroll de la page sous le modèle
+      body.style.overflow = 'hidden';
+    } else {
+      // Retirer l'overlay sombre du body
+      const body = document.body;
+      document.getElementById('everly').classList.remove("dark-overlay");
+
+      // Réactiver le scroll
+      body.style.overflow = 'auto';
+    }
+  },[showModel])
   return (
     <>
       <h1 id="title-home-page">Suivi des Habitudes</h1>
       <div id="forms-habits">
-      <div  id="row-1">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
+        <div  id="row-1">
+          <form onSubmit={(e) => {   e.preventDefault(); }} >
             <h3>ajouter habitude</h3>
-            <input
-              value={habitude}
-              onChange={(e) => {
-                setHabitude(e.target.value);
-              }}
-              placeholder="nouvelle habitude"
-              type="text"
-            />
-            <button
-              onClick={() => {
-                ajouterHbitude();
-              }}
-            >
+            <input value={habitude} onChange={(e) => { setHabitude(e.target.value); }} placeholder="nouvelle habitude" type="text"/>
+            <button onClick={() => { ajouterHbitude();  }}>
               ajouter
             </button>
           </form>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
-            <h3>ajouter habitude</h3>
-            <input
-              value={habitude}
-              onChange={(e) => {
-                setHabitude(e.target.value);
-              }}
-              placeholder="nouvelle habitude"
-              type="text"
-            />
-            <button
-              onClick={() => {
-                ajouterHbitude();
-              }}
-            >
-              ajouter
-            </button>
-          </form>
+            <div className="containe-crud">
+              <h3>gestion des habitudes</h3>
+                  {habitudes.map((habitude)=>(
+                    <div key={habitude.id} className="contain-crud-habits">
+                    <h1>{habitude.nom}</h1>
+                    <div className="btns-crud">
+                          <div onClick={()=>{FormEdit(habitude.id)}}  className="parent-icon">
+                            
+                            <Pencil  className='icon edit-icon' />
+                          </div>
+                          <div onClick={()=> {console.log(habitude.id)}} className="parent-icon">
+                            <Trash   className="icon delete-icon"  />
+                          </div>
+                    </div>     
+                    </div>
+                  ))  }           
+            </div>
         </div>
-
         <div className="tracking-container">
           <div className="table-container">
             <h3>Tableau de suivi</h3>
@@ -155,9 +159,13 @@ function Home() {
             </table>
           </div>
         </div>
+        {showModel && createPortal(
+      <EditModel  onClose={() => setShowModel(false)} />,document.body
+    )}
       </div>
     </>
-  );
+  )
 }
 
 export default Home;
+
