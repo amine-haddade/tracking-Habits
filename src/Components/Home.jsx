@@ -5,12 +5,10 @@ import EditModel from "./model/EditModel";
 function Home() {
   const [habitudes, setHabitudes] = useState([]);
   const [habitude, setHabitude] = useState("");
-  const [stockIdHbits, setStockIdHbits] = useState({
-    id: null,
-    indiceJour: null,
-  });
+  const [stockIdHbits, setStockIdHbits] = useState({  id: null,  indiceJour: null});
   const [nbrJpours, setNbrJours] = useState(Array(8).fill({ prog: 0 }));
   const [showModel,setShowModel]=useState(false);
+  const [habitudeEdit,setHabitudeEdit]=useState('')
   function ajouterHbitude() {
     setHabitudes([
       ...habitudes,
@@ -37,15 +35,13 @@ function Home() {
     });
   }
 
-  useEffect(() => {
-    console.log(habitudes); // habitude changer
-    console.log(stockIdHbits);
+  useEffect(() => { 
     const JoursHabitudes = habitudes.find(
       (habitude) => habitude.id === stockIdHbits.id
     )?.jours[stockIdHbits.indiceJour];
+    
     if (JoursHabitudes === true) {
-      // pour tester si le joure clicker true
-      // si true
+
       setNbrJours(
         nbrJpours.map((el, ind) =>
           ind === stockIdHbits.indiceJour ? { ...el, prog: el.prog + 1 } : el
@@ -59,32 +55,52 @@ function Home() {
           ind === stockIdHbits.indiceJour ? { ...el, prog: el.prog - 1 } : el
         )
       );
-      // setStockIdHbits({id:null,indiceJour:null})
     }
   }, [habitudes,stockIdHbits]);
 
   function FormEdit(IdHabitude){
-    console.log(IdHabitude)
+    setHabitudeEdit(IdHabitude)
     setShowModel(true)
-    
   }
   useEffect(()=>{
     if (showModel) {
-      // Ajouter un overlay sombre au body
       const body = document.body;
-      document.getElementById('everly').classList.add("dark-overlay");
-
-      // Empêcher le scroll de la page sous le modèle
+      const everlyDiv=document.getElementById('everly');
+      everlyDiv.classList.add("dark-overlay");
+      everlyDiv.onclick=()=>setShowModel(false)
       body.style.overflow = 'hidden';
     } else {
-      // Retirer l'overlay sombre du body
       const body = document.body;
       document.getElementById('everly').classList.remove("dark-overlay");
-
-      // Réactiver le scroll
       body.style.overflow = 'auto';
     }
   },[showModel])
+
+
+  const  removeHabitude=(IdHbitude)=>{
+    const nouveauxIndicesSup = [];
+    const NewHabitudes=habitudes.filter((ele)=>{
+      if(ele.id===IdHbitude){
+        ele.jours.forEach((ele,indice)=>{
+          if(ele===true){
+            nouveauxIndicesSup.push(indice)
+          }
+        })
+        return false
+      }
+      return true
+    })
+    setHabitudes(NewHabitudes)
+    const NewNbrJours = nbrJpours.map((ele, indice) => {
+      if (nouveauxIndicesSup.includes(indice)) {
+        return { ...ele, prog: ele.prog - 1 };
+      }
+      return ele;
+    });
+  
+    // Mettre à jour l'état de `nbrJpours` avec les nouvelles valeurs
+    setNbrJours(NewNbrJours);
+  }
   return (
     <>
       <h1 id="title-home-page">Suivi des Habitudes</h1>
@@ -107,7 +123,7 @@ function Home() {
                             
                             <Pencil  className='icon edit-icon' />
                           </div>
-                          <div onClick={()=> {console.log(habitude.id)}} className="parent-icon">
+                          <div onClick={()=>removeHabitude(habitude.id)} className="parent-icon">
                             <Trash   className="icon delete-icon"  />
                           </div>
                     </div>     
@@ -131,17 +147,11 @@ function Home() {
               </thead>
               <tbody>
                 {[...nbrJpours].map(
-                  (
-                    _,
-                    indiceJour // le nombre de jout il doist stcké dans une varible siasir par le user
-                  ) => (
+                  (_,indiceJour ) => (
                     <tr key={indiceJour}>
                       <td className="nbr-jr">{indiceJour + 1}</td>
                       {habitudes.map((habitude, index) => (
-                        <td
-                          key={index}
-                          onClick={() => Checkjour(habitude.id, indiceJour)}
-                        >
+                        <td  key={index}  onClick={() => Checkjour(habitude.id, indiceJour)}>
                           <div className="chek-box ">
                             {habitude.jours[indiceJour] && (
                               <i className="fa-solid fa-check"></i>
@@ -160,7 +170,7 @@ function Home() {
           </div>
         </div>
         {showModel && createPortal(
-      <EditModel  onClose={() => setShowModel(false)} />,document.body
+      <EditModel  onClose={() => setShowModel(false)}  setHabitudeEditFromHome={setHabitudeEdit} habitudeEditable={habitudeEdit} allHabitudes={habitudes} setAllhabitudes={setHabitudes}/>,document.body
     )}
       </div>
     </>

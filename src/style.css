@@ -281,7 +281,7 @@ th {
    top: 50%;
   left: 50%;
    transform: translate(-50%, -50%);
-  padding: 20px;
+  padding: 40px  20px;
   border-radius: 6px;
   border: 1px solid #cbcbcb83;
   background-color: rgb(255, 255, 255);
@@ -290,6 +290,27 @@ th {
   gap: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000000;
+  animation: anim 0.6s ;
+ 
+
+}
+@keyframes anim {
+  0%{
+    top: 0%;
+
+  }
+  100%{
+    top: normal;
+
+  }
+  100%{
+    top: normal;
+    
+  }
+  0%{
+    top: 0%;
+
+  }
 
 }
 
