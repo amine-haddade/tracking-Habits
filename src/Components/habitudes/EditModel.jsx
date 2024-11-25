@@ -1,9 +1,6 @@
 import { useState } from "react";
-
-// EditModel.js
 export default function EditModel({ onClose,habitudeEditable,allHabitudes,setAllhabitudes ,setHabitudeEditFromHome}) {
   const habitudeData=allHabitudes.find((ele)=>ele.id===habitudeEditable)
- 
   const [nomhabitude,setNomhabitude]=useState(habitudeData.nom)
 
   const  modifyHabitude=()=>{

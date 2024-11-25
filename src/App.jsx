@@ -1,4 +1,4 @@
-import Home from './Components/Home'
+import AppHabitude from './Components/habitudes/AppHabitude'
 import './style.css'
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <Home/>
+      <AppHabitude/>
     </>
   )
 }
