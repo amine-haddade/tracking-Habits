@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import {Pencil,Trash}  from 'lucide-react';
 import { createPortal } from "react-dom";
 import EditModel from "./EditModel";
-import { GetHabitudes } from "../../_provider/habitudes";
+import { GetHabitudes } from "../../_provider/Habitudes";
 
 function TableHabitudes() {
     const {habitudes, setHabitudes,nbrJpours, setNbrJours} = GetHabitudes();

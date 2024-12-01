@@ -1,12 +1,12 @@
-import AppHabitude from './Components/habitudes/AppHabitude'
-import './style.css'
+// import AppHabitude from './Components/habitudes/AppHabitude'
+import AppTodo from './Components/ToDoApp/AppTodo'
 
 function App() {
  
 
   return (
     <>
-      <AppHabitude/>
+      <AppTodo/>
     </>
   )
 }
