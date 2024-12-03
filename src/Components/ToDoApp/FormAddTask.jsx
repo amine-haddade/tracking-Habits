@@ -28,7 +28,6 @@ function FormAddTask({onclose}) {
 
     const handleSelectedChanged=(selectedOption)=>{
         setPower(selectedOption.value)
-        console.log(selectedOption.value)
         
     }
 

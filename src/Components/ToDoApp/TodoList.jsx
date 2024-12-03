@@ -1,14 +1,16 @@
-import {Plus,Filter,Check,Calendar}  from 'lucide-react';
+import {Plus,Filter,Check,Calendar, ListTodo}  from 'lucide-react';
 import FormAddTask from './FormAddTask';
 import { createPortal } from 'react-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Select from 'react-select'
 import { GetDataTodo } from '../../_provider/TodoLists';
 
 function TodoList() {
 
-    const {option,lisTodo,setListToDo,selected, setSelected}=GetDataTodo()
+    const {option,lisTodo,setListToDo,selected, setSelected,optionFilter}=GetDataTodo()
     const [isOpen,setOpen]=useState(false)
+    const [filterPower,setFilterPower]=useState('all')
+    const [todoListFiltrer,setTodoListFiltrer]=useState([])
     function openForm(){
         setOpen(true)
     }
@@ -41,6 +43,21 @@ function TodoList() {
         setListToDo(NewList)
     }
 
+    const handelFilterSelect=(selectedOption)=>{
+        setFilterPower(selectedOption.value)
+        
+        
+    }
+    useEffect(()=>{
+        if(lisTodo.length>0){
+            const ListTaskFiltring=filterPower==="all" ? lisTodo :
+            lisTodo.filter((task)=>task.Power===filterPower);
+            setTodoListFiltrer(ListTaskFiltring)
+            
+        }
+    },[lisTodo,filterPower])
+    
+    
     
 
     
@@ -50,11 +67,12 @@ function TodoList() {
         <hr className="todo-line" />
         <div className="container-Add-Task">
             <button  onClick={()=>openForm()}><Plus/>new task</button>
-            <Select  onMenuOpen={() => {  console.log('Menu ouvert');}} options={option} className='select-power' placeholder={<><Filter/><span>filter</span></>} />
+            <Select onChange={handelFilterSelect}    options={optionFilter} className='select-power' placeholder={<><Filter/><span>filter</span></>} />
         </div>
         <div className="list-to-do">
-            {
-                lisTodo.map((ele,index)=>(
+            { todoListFiltrer &&
+                todoListFiltrer.map((ele,index)=>(
+                    
                     <div key={ele.id} className={`singl-to-do ${ele.status ?'cached-task':''}`}>
                             <div onClick={()=>{checkTask(ele.id)}} className="chek-box">
                                 {ele.status ? <Check id='check-icon'/>:""}
