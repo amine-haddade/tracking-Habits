@@ -13,7 +13,6 @@
     padding-top: 100px;
     margin-bottom: 200px !important;
     position: relative;
-    
 }
 .dark-overlay {
     position: fixed;
@@ -100,6 +99,8 @@
     padding: 15px 20px;
     border:  1px solid #e8ecee;
     border-radius: 8px;
+    position: relative;
+    
 }
 .list-to-do .singl-to-do h3{
     font-size: 20px;
@@ -120,6 +121,66 @@
     align-items: center;
     gap: 10px;
     color: #888cac;
+}
+.singl-to-do .box-edit-button{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.singl-to-do .box-edit-button:hover{
+    background-color: #f8f9f9;
+}
+.singl-to-do .edit-func{
+   
+   color: #000000;
+   cursor: pointer;
+}
+.singl-to-do .Edit-Box{
+    width: 180px;
+    padding: 8px;
+    border-radius:4px;
+    box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    position: absolute;
+    right: 30px;
+    top: 50px;
+    z-index: 1000;
+    background-color: white;
+    animation: myAnim 0.3s ease 0s 1 normal forwards;
+}
+
+.singl-to-do .Edit-Box div{
+ display: flex;
+ padding-left: 6px !important;
+ border-radius: 4px; 
+ width:100%;
+ padding: 6px 0px;
+ gap: 10px;
+ align-items: center;
+ font-size: 14px;
+ transition: 0.2s;
+ cursor: pointer;
+ 
+}
+@keyframes myAnim {
+	0% {
+		transform: scale(0.5);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+.singl-to-do .Edit-Box div:hover{
+    background-color: #f2f4f4;
 }
 .importance-high{
     padding: 4px 6px;
@@ -224,7 +285,7 @@
     margin: auto;
     padding: 20px;
     border-radius: 10px;
-    z-index: 100000000;
+    z-index: 1000;
 
 }
 .form-add-task #name-task{
@@ -366,7 +427,69 @@ div#react-select-3-placeholder {
 
 
 
-
+@media screen and (max-width: 1040px) {
+    .importance-high{
+        padding: 2px 4px;
+        gap: 4px;
+        font-size: 12px;
+    }
+    .importance-high .degré-div{
+        width: 8px;
+        height: 8px;
+    
+    }
+    .importance-base{
+        padding: 2px 4px;
+        gap: 4px;
+        font-size: 12px;
+    }
+    .importance-base .degré-div{
+    
+        width: 8px;
+        height: 8px;
+    
+    
+    }
+    .importance-moyenne{
+        padding: 2px 4px;
+        gap: 4px;
+        font-size: 12px;
+    }
+    .importance-moyenne .degré-div{
+        width: 8px;
+        height: 8px;
+    
+    
+    }
+    .select-power{
+        width: 160px !important;
+        border: none !important;
+        color: #888cac;
+        border-radius: 6px;
+        border:1px solid #ccd0d0 !important;
+        padding: 0px !important;
+    }
+    .form-add-task .box-btns .col button,label{
+        gap: 2px;
+        padding: 8px 10px !important;
+        font-size: 17px;
+        border: #ff0000;
+        border-radius: 8px;
+        color: #888cac;
+    }
+    .form-add-task .box-btns .col-1 button,label{
+        padding: 8px 10px;
+        background-color: white !important;
+        border:1px solid #ccd0d0 !important;
+        transition: 0.3s;
+        
+    }
+    .form-add-task{
+        min-width: 490px !important;
+    }
+    
+    
+}
 
 @media screen and (max-width: 1000px) {
     .bodyTodo{
@@ -432,4 +555,33 @@ div#react-select-3-placeholder {
     
     }
     
+}
+@media screen and (max-width: 600px) {
+    .form-add-task .box-btns {
+        flex-direction: column ;
+        row-gap: 15px;
+        display: flex;
+        align-items:normal;
+    }
+    .form-add-task .box-btns .col-1 {
+        align-self: flex-start !important;
+    }
+    .form-add-task .box-btns .col-2 {
+        align-self: flex-end !important;
+    }
+    .form-add-task{
+        min-width: 350px !important;
+        max-width: 350px !important;
+    }
+    .container-Add-Task button{
+            gap: 0px;
+            font-size: 16px;
+            padding:5px 8px;
+        
+    }
+    .picker-date{
+        margin-top: 20px;
+        top: 100%;
+        right: 0;
+    }
 }

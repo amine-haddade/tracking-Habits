@@ -1,7 +1,7 @@
 import EditModel from "./EditModel";
 import {Pencil,Trash}  from 'lucide-react';
 import { createPortal } from "react-dom";
-import { GetHabitudes } from '../../_provider/habitudes';
+import { GetHabitudes } from '../../_provider/Habitudes';
 import { useState,useEffect } from 'react';
 
 function EditHabitude() {

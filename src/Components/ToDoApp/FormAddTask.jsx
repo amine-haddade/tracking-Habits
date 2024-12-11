@@ -14,7 +14,6 @@ function FormAddTask({onclose}) {
     const[name,setName]=useState('')
     const[power,setPower]=useState('')
     
-    
     function handleSubmit(e){
         e.preventDefault()
         onclose()
@@ -33,7 +32,6 @@ function FormAddTask({onclose}) {
 
     function AddTask(){
         setListToDo([...lisTodo,{id:Date.now(),name:name,dueDate:format(selected,'PP'),Power:power,Status:false}])
-        console.log(lisTodo)
     }
         
     return (
@@ -42,7 +40,7 @@ function FormAddTask({onclose}) {
                     <input value={name} onChange={(ev)=>setName(ev.target.value)} type="text" id='name-task'  placeholder='Task name here...' autoComplete='off'/>
                         <div className="box-btns">
                             <div className="col col-1">
-                                <label  onClick={openCalender} htmlFor="due-date" id='due-date-btn'><Calendar size={16} strokeWidth={1.75} />due date</label>
+                                <label className='due-date-form-add'  onClick={openCalender} htmlFor="due-date" id='due-date-btn'><Calendar size={16} strokeWidth={1.75} />due date</label>
                                 <input type="date" id='due-date' />
                                 <Select  onChange={handleSelectedChanged} options={option} className='select-power' placeholder='power'  />
                             </div>

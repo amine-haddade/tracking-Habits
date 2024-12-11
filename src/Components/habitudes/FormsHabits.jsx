@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GetHabitudes } from "../../_provider/habitudes";
+import { GetHabitudes } from "../../_provider/Habitudes";
 
 function FormsHabits() {
   const {habitudes, setHabitudes,nbrJpours, setNbrJours} = GetHabitudes();
