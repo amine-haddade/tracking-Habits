@@ -7,7 +7,7 @@ function FormsHabits() {
   function ajouterHbitude() {
     setHabitudes([
       ...habitudes,
-      { id: Date.now(), nom: habitude, jours: Array(8).fill(false) },
+      { id: Date.now(), nom: habitude, jours: Array(30).fill(false) },
     ]);
     setHabitude(""); // Réinitialiser la progression pour éviter les doublons
   }

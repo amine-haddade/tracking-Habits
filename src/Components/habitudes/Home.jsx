@@ -6,7 +6,6 @@ function Home() {
 
   return (
     <>
-      <h1 id="title-home-page">Suivi des Habitudes</h1>
       <div id="forms-habits">
         <div  id="row-1">
           <FormsHabits/>

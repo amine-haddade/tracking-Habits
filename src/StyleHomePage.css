@@ -1,0 +1,956 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    text-transform: capitalize;
+}
+body{
+    position: relative;
+}
+.flex-normal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header{
+    padding: 20px 50px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100000000000000000000000000;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: white;
+}
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+}
+header nav .logo{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+
+}
+.link{
+    color: black;
+    text-decoration: none;
+}
+header nav ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+    gap: 20px;
+    font-weight: 600; 
+}
+header nav ul li .link{
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+}
+header nav ul li .link:hover{
+    color: #3d40d5;
+}
+header nav .login-form-btn{
+    gap: 20px;
+}
+header nav .login-form-btn button .link-btn{
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    background-color: #3d40d5;
+    color: white;
+    min-height: 40px;
+    max-height: 40px;
+    gap: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.3s;
+    
+}
+header nav .login-form-btn button .link-btn:hover{
+    background-color: #5f61ee;
+}
+header nav .login-form-btn button{
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 6px;
+    
+}
+#btn-sing-in{
+    background-color: white;
+    color: black;
+    border:  1px solid #e8ecee;
+    transition: 0.3s;
+    padding: 8px 22px;
+}
+#btn-sing-in:hover{
+
+    background-color: #e8ecee;
+}
+
+/* Styles pour le menu mobile */
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+}
+#close-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+
+}
+
+.menu-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px;
+    padding: 20px;
+    z-index: 999;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+    animation: animClose 0.4s ease forwards;  /* Applique l'animation au menu */
+
+}
+@keyframes anim {
+    0% {
+        
+        transform: translateX(100%);
+    }
+   
+    100%{
+        transform: translateX(0%);
+
+    }
+    
+}
+@keyframes animClose {
+    0% {
+        
+        transform: translateX(0%);
+    }
+   
+    100%{
+        transform: translateX(100%);
+
+    }
+    
+}
+
+.menu-mobile.open {
+    display: block;
+    transform: translateX(0);
+    animation: anim 0.4s ease forwards;  /* Applique l'animation au menu */
+
+}
+.menu-mobile.close {
+    animation: animClose 0.4s ease forwards;  /* Applique l'animation au menu */
+
+}
+
+.menu-mobile ul {
+    margin-top: 30px !important;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.menu-mobile ul li {
+    margin: 20px 0;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-button {
+        display: block;
+    }
+
+    .login-form-btn,.list-link-nav{
+        display: none;
+    }
+    .menu-mobile ul li{
+        font-size:16px ;
+    }
+
+    
+}
+@media screen and (max-width: 468px) {
+    .menu-mobile {
+        width: 60%;
+    
+    }
+}
+
+
+
+/************************************************hero section *********************************/
+.bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    opacity: 0.1;
+    border: none;
+    background-position: center;
+    background-size: cover;
+    background: #5433FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A5FECB, #20BDFF, #5433FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.hero-section{
+    height: 88vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 0px;
+    gap: 30px;
+
+}
+.hero-section h1{
+    font-size:60px;
+    line-height: 1.2;
+    color: rgba(0, 0, 0, 0.944);
+}
+.hero-section p{
+    font-size:22px;
+    text-transform: lowercase;
+    color: #8f8f8f;
+}
+.hero-section .box-btn-hero-section{
+    display: flex;
+    gap: 8px;
+}
+.hero-section .box-btn-hero-section button{ 
+    padding: 10px 30px;
+    font-size: 20px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    background-color: #3d40d5;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+.hero-section .box-btn-hero-section button:last-child{ 
+    color: rgb(0, 0, 0);
+    border: 1px solid rgba(172, 170, 170, 0.409);
+    background-color: #ffffff;
+
+}
+.hero-section .box-btn-hero-section button:last-child:hover{
+    background-color: rgba(172, 170, 170, 0.409);;
+}
+.hero-section .box-btn-hero-section button:hover{
+    background-color:#7274f6 ;
+}
+.hero-section ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    color: #838383;
+
+}
+.hero-section ul li{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.version{
+    padding: 4px 10px;
+    background-color: #fff7cd;
+    color: #d9a73a;
+    display: flex;
+    gap: 5px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    border:  1px solid #d9a73a ;
+    cursor: pointer;
+}
+.version .solid{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #d9a73a;
+}
+
+/************************************************fonctionnalité section *********************************/
+.Fonctionnlité-section{
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+.Fonctionnlité-section>h1{
+    font-size: 18px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: #4f46e5;
+    font-weight: 500;
+}
+.Fonctionnlité-section>h1+p{
+    font-size: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    word-spacing: 0px;
+    opacity: 0.9;
+    line-height: 40px;
+    color: rgb(0, 0, 0);
+    
+}
+.Fonctionnlité-section p:nth-child(3){
+    text-align: center;
+    color: #838383;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.Fonctionnlité-section .list-fonction{
+    padding: 20px 40px;
+    margin-top: 70px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-direction: column;
+}
+.Fonctionnlité-section .list-fonction .singl-fonctionnalite{
+    padding: 10px;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    min-width: 300px;
+}
+.Fonctionnlité-section .list-fonction .singl-fonctionnalite h4{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+.Fonctionnlité-section .list-fonction .singl-fonctionnalite a{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #3d40d5;
+}
+.Fonctionnlité-section .list-fonction .singl-fonctionnalite p{
+    font-size: 16px;
+    color: #4f4f4f;
+}
+.Fonctionnlité-section .list-fonction .singl-fonctionnalite a:hover .icon-flech{
+    transform: translateX(5px);
+}
+.Fonctionnlité-section .list-fonction .singl-fonctionnalite a .icon-flech{
+    transition: 0.3s;
+}
+.Fonctionnlité-section .list-fonction .singl-fonctionnalite a{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #3d40d5;
+}
+
+/*********************************************Avantage section***********************************/
+
+.Avantage-section{
+    margin-top: 60px;
+    margin-bottom: 80px;
+    background-color: #eef2ff;
+    padding: 80px 170px ;
+}
+.Avantage-section>h1{
+    font-size: 16px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: #3d40d5;
+    font-weight: 500;
+}
+.Avantage-section>h1+p{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 700;
+    word-spacing: 0px;
+    opacity: 0.9;
+    line-height: 40px;
+    color: rgb(0, 0, 0);
+    
+}
+.Avantage-section .list-Avantages{
+    padding: 0px 40px;
+    margin-top: 70px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.Avantage-section .list-Avantages .singl-avantage{
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    min-width: 300px;
+}
+.Avantage-section .list-Avantages .singl-avantage h4{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+.singl-avantage h4 span{
+    margin-bottom: 10px;
+}
+.Avantage-section .list-Avantages .singl-avantage h4 .box-icon-avantage{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: #4f46e5;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    margin-right: 15px;
+    
+}
+.Avantage-section .list-Avantages .singl-avantage a{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #3d40d5;
+}
+.Avantage-section .list-Avantages .singl-avantage p{
+    font-size: 16px;
+    color: #6e6d6d;
+    padding-left:65px;
+}
+
+/****************************************section statistiue***************************/
+.statisque-section{
+    display: grid;
+    padding: 40px 100px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 80px;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.statisque-section .col-1 img{
+    width: 100%;
+    min-width: 600px !important;
+    object-fit: cover;
+    border-radius: 20px;
+    -webkit-box-shadow: 19px 14px 45px -1px rgba(61,64,213,0.48); 
+    box-shadow: 19px 14px 45px -1px rgba(61,64,213,0.48);
+    
+    
+}
+.statisque-section .col-2 p {
+    font-size: 16px;
+    color:#4b5563 ;
+    line-height: 2rem;
+    
+}
+.statisque-section .col-2{
+    display: flex;
+    flex-direction:column ;
+    gap: 20px;
+
+}
+.statisque-section .col-2 h1{
+    font-size: 40px;
+    
+
+}
+.statisque-section .col-2 .statistique-box-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 20px;
+}
+.statisque-section .col-2 .statistique-box-list .singl-box{
+    padding-left: 20px;
+    border-left: 2px solid rgb(212, 210, 210);
+}
+.statisque-section .col-2 .statistique-box-list .singl-box .h3{
+    color: #3d40d5;
+    font-size: 24px;
+    opacity: 0.9;
+}
+.statisque-section .col-2 .statistique-box-list .singl-box span{
+   color: #7a7d86;
+   font-size: 14px;
+}
+/**************************************experience section *************************************/
+.exper-section{
+    padding: 60px 100px;
+}
+.exper-section h1{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.exper-section>p{
+    text-align: center;
+    color: #4b5563;
+
+}
+.exper-section .listGoals{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    gap: 20px;
+    
+}
+.exper-section .listGoals .sing-box-goals{
+    border:  1px solid  #bdbfc682;
+    padding: 40px 30px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+.exper-section .listGoals .sing-box-goals:hover{
+    transform: translateY(-4px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.sing-box-goals h5{
+    font-size: 18px;
+    padding: 10px 0px;
+    font-weight: 500;
+}
+.sing-box-goals .ico{
+    color: #3d40d5;
+}
+.sing-box-goals p{
+    font-size: 16px;
+    color: #6e6d6d;
+}
+.sing-box-goals .animat-div{
+    width:120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #eef2ff99;
+    position: absolute;
+    top: -30px;
+    right: -30px;
+}
+
+/**************************************plan Payment  section *************************************/
+.payment-section{
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+.payment-section>h1{
+    font-size: 18px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: #4f46e5;
+    font-weight: 500;
+}
+.payment-section>h1+p{
+    font-size: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    word-spacing: 0px;
+    opacity: 0.9;
+    line-height: 40px;
+    color: rgb(0, 0, 0);
+    
+}
+.payment-section p:nth-child(3){
+    text-align: center;
+    color: #747474;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.lsit-type-upgrade{
+    padding: 40px 180px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+}
+.lsit-type-upgrade .payment-type{
+    padding: 40px 20px;
+    border:#74747470 1px solid;
+    border-radius: 15px;
+    position: relative;
+}
+.payment-type ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0px;
+}
+.payment-type ul li{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px !important;
+}
+.payment-type h1{
+    font-size: 26px;
+    margin: 10px 0px;
+    font-weight: 600;
+}
+.payment-type p{
+    color: #383838;
+    font-size: 14px;
+    margin-bottom: 16px !important;
+}
+.payment-type h4{
+    font-size: 14px !important;
+}
+.payment-type h4 span{
+    font-size: 26px;
+}
+.payment-pro{
+    border:#3d40d5 1px solid !important;
+}
+.payment-type button{
+    width: 100%;
+    padding: 12px 0px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    background-color: #eef2ff;
+    color: #3d40d5;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.payment-type button:hover{
+    background-color:#dce4ff ;
+}
+.payment-type button.active{
+    background-color: #3d40d5;
+    color: white;
+}
+.payment-type button.active:hover{
+    background-color: #5658cd;
+    color: white;
+}
+#populaire-btn{
+    position: absolute;
+    width: 120px;
+    font-size: 12px;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%); /* Décale l'élément de la moitié de sa largeur */
+    background-color: #3d40d5;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 6px 0px;
+}
+
+
+
+
+
+
+
+
+
+/*    footer*/
+footer{
+    padding: 100px 50px !important;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer .cols{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr  ;
+    gap: 10px;
+    
+}
+.cols h1{
+    font-size: 25px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+.cols ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+}
+.cols ul li{
+    cursor: pointer;
+    transition: 0.3s;
+}
+.cols .col-4 ul{
+    display: flex;
+    flex-direction: row !important;
+    
+}
+.cols ul li:hover{
+   color: #3d40d5;
+    
+}
+@media screen and (max-width:2300px) {
+    .lsit-type-upgrade{
+        padding: 40px 80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
+    }
+    
+
+    
+}
+@media screen and (max-width:1300px) {
+    .exper-section .listGoals{
+        grid-template-columns: 1fr 1fr  ;
+        
+    }
+    .Avantage-section{
+        padding: 80px 50px ;
+    }
+    .lsit-type-upgrade{
+        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+    }
+    .lsit-type-upgrade .payment-type{
+        padding: 20px 15px;
+    }
+    .payment-type ul{
+        gap: 15px;
+        margin: 10px 0px;
+    }
+    .payment-type button{
+        font-size: 14px;
+    }
+    .statisque-section{
+        padding: 40px 60px;
+    }
+
+    footer .cols{
+        grid-template-columns: 1fr 1fr 1fr 1fr  ;
+        gap: 20px;
+    }
+    .cols h1{
+        font-size: 20px;
+        background-color: white;
+        margin-bottom: 20px;
+    }
+    
+
+    
+}
+
+@media screen  and (max-width:1100px){
+    .Fonctionnlité-section .list-fonction{
+
+        grid-template-columns: 1fr 1fr ;
+        justify-content: center;
+    }
+    
+    .statisque-section{
+        display: grid;
+        padding: 40px 50px;
+        gap: 40px;
+        flex-wrap: wrap;
+        grid-template-columns: 1fr;
+    
+    }
+    
+    .statisque-section .col-1 img{
+        width: 100%;
+        min-width: 400px !important;
+        height: 100%;
+        
+        
+    }
+    .statisque-section .col-2 h1{
+        font-size: 30px;
+        
+    
+    }
+    footer{
+        padding: 50px 20px;
+        background-color: white;
+    }
+    
+
+}
+@media screen  and (max-width:900px){
+    .Avantage-section{
+        padding: 50px 10px ;
+    }
+    .lsit-type-upgrade{
+        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+    }
+    .menu-button {
+        display: block;
+    }
+
+    .login-form-btn,.list-link-nav{
+        display: none;
+    }
+    .hero-section h1{
+        font-size:40px !important;
+    }
+    .hero-section p{
+        font-size:20px;
+    }
+    .hero-section .box-btn-hero-section button{ 
+        padding: 10px 15px;
+        font-size: 18px;
+    
+    }
+    .hero-section ul{
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    
+    }
+    
+    footer .cols{
+        grid-template-columns: 1fr 1fr 1fr   ;
+        gap: 20px;
+    }
+    
+    
+}
+
+@media screen  and (max-width:800px){
+    .Fonctionnlité-section .list-fonction{
+
+        grid-template-columns: 1fr  ;
+    }
+    .exper-section{
+        padding: 60px 30px;
+    }
+    header{
+        padding: 15px 20px !important;
+    }
+}
+@media screen  and (max-width:600px){
+    .exper-section .listGoals{
+        grid-template-columns: 1fr  ;
+        
+    }
+    .Avantage-section .list-Avantages{
+        padding: 0px 20px;
+        gap: 20px;
+        grid-template-columns: 1fr ;
+
+    
+    }
+    .lsit-type-upgrade{
+        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .statisque-section .col-1 img{
+        width: 100%;
+        min-width: 200px !important;
+        height: 100%;
+        
+        
+    }
+    .hero-section h1{
+        font-size:25px !important;
+    }
+    .hero-section p{
+        font-size:16px !important;
+    }
+    .hero-section ul{
+        gap: 5px;
+    
+    }
+    .hero-section ul li{
+        font-size: 14px !important;
+    
+    }
+    .hero-section .box-btn-hero-section button{ 
+        padding: 8px 10px;
+        font-size: 16px;
+    
+    }
+    footer .cols{
+        grid-template-columns: 1fr    ;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+.link{
+    text-decoration: none !important;
+}
+@media screen  and (max-width:1030px){
+    header{
+        padding: 20px 40px;
+    }
+   
+    header nav ul{
+        font-size: 16px;
+        gap: 15px;
+        font-weight: 500; 
+    }
+    header nav .login-form-btn{
+        gap: 10px;
+    }
+    header nav .login-form-btn button .link-btn{
+        font-weight: 500;
+        
+    }
+    #btn-sing-in{
+        padding: 8px 18px;
+    }
+    
+}

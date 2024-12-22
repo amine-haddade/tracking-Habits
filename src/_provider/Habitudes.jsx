@@ -2,7 +2,7 @@ import { useState,useContext,createContext } from "react"
 const HabitudesContext=createContext()
 export function HbaitudeProvider ({children}) {
     const [habitudes, setHabitudes] = useState([]);
-    const [nbrJpours, setNbrJours] = useState(Array(8).fill({ prog: 0 }));
+    const [nbrJpours, setNbrJours] = useState(Array(30).fill({ prog: 0 }));
 
   return (
     <>
