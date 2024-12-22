@@ -225,7 +225,7 @@ header nav .login-form-btn button{
 
 }
 .hero-section{
-    height: 88vh;
+    margin-top: 50px;
     position: relative;
     display: flex;
     justify-content: center;
