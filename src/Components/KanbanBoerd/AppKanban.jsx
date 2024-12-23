@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { createPortal } from 'react-dom'
 import {Trash2} from 'lucide-react'
-import '../../styleTodo.css'
+import "../../kanban.css"
 import FormAdd from './FormAdd'
 function AppKanban() {
     const [status,setStatus]=useState(['ToDo','In-Progresse','Done'])
