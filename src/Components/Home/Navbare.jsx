@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import {CircleCheckBig,ArrowRight,Menu,X} from 'lucide-react'
 import { Link,Outlet } from 'react-router-dom'
-import "../../style.css"
-import "../../styleTodo.css"
-import "../../styleHomePage.css"
-import "../../Kanban.css"
+
 function Navbare() {
     const [menuOpen,setMenuOpen]=useState(false)
     const toggleMenu=()=>{

@@ -102,11 +102,7 @@
     position: relative;
     
 }
-.list-to-do .singl-to-do h3{
-    font-size: 20px;
-    font-weight: lighter;
 
-}
 .list-to-do .singl-to-do .data-task{
     display: flex;
     flex-direction: column;
