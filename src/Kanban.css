@@ -58,7 +58,7 @@
   align-items: center;
 }
 
-.form-add-task{
+.kanabanBoerd .form-add-task{
   width: 60%;
   min-width: 400px;
   max-width: 700px;
@@ -76,7 +76,7 @@
   z-index: 1000;
 
 }
-.form-add-task #name-task{
+.kanabanBoerd .form-add-task #name-task{
   border: none;
   background-color: transparent;
   font-size: 20px;
@@ -86,19 +86,19 @@
 ::placeholder{
   color: #858989;
 }
-.form-add-task .box-btns{
+.kanabanBoerd .form-add-task .box-btns{
   display: flex;
   justify-content: space-between;
   align-items: center;
 
 }
-.form-add-task .box-btns .col{
+.kanabanBoerd .form-add-task .box-btns .col{
   display: flex;
   align-items: center;
   gap: 10px;
   border: none;
 }
-.form-add-task .box-btns .col button,label{
+.kanabanBoerd .form-add-task .box-btns .col button,.kanabanBoerd label{
   display: flex;
   gap: 8px;
   cursor: pointer;
@@ -118,15 +118,15 @@
   color: white;
   transition: 0.3s;
 }
-.form-add-task .box-btns .col-2 button:first-child{
+.kanabanBoerd .form-add-task .box-btns .col-2 button:first-child{
   background-color: #ffffff !important;
   border:1px solid #eaeded !important;
   transition: 0.3s;
 }
-.form-add-task .box-btns .col-2 button:last-child:hover{
+.kanabanBoerd .form-add-task .box-btns .col-2 button:last-child:hover{
   background-color: rgb(139, 85, 255) !important;
 }
-.form-add-task .box-btns .col-2 button:first-child:hover{
+.kanabanBoerd .form-add-task .box-btns .col-2 button:first-child:hover{
   background-color: #eaeded !important;
 }
 

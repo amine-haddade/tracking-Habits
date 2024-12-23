@@ -192,7 +192,7 @@
 }
 
 /* Style pour les cases à cocher */
-input[type="checkbox"] {
+.tracking-container input[type="checkbox"] {
   transform: scale(1.2);
   cursor: pointer;
 }
@@ -200,7 +200,7 @@ input[type="checkbox"] {
 /* Style pour l'affichage du progrès */
 
 
-.chek-box{
+.tracking-container .chek-box{
   width: 35px;
   height: 35px;
   border: none;
@@ -212,7 +212,7 @@ input[type="checkbox"] {
   margin: auto;
   align-items: center;
 }
-.chek-box i{
+.tracking-container .chek-box i{
   font-size: 22px;
   color: blue;
 }
@@ -245,7 +245,7 @@ th {
 
   text-align: center;
 }
-.checkbox {
+.tracking-container .checkbox {
   width: 18px;
   height: 18px;
   border: 2px solid #007bff;
@@ -273,7 +273,7 @@ th {
 }
 
 
-.edit-model{
+.tracking-container .edit-model{
   min-width: 400px;
   max-width: 900px ;
   width: 40%;
