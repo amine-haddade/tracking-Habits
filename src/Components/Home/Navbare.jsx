@@ -43,9 +43,9 @@ function Navbare() {
                     
                 </nav>
             </header>
-            <main >
+            < >
                 <Outlet />
-            </main>
+            </>
         </>
   )
 }
